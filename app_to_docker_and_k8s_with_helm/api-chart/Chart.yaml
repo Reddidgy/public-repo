@@ -1,0 +1,4 @@
+apiVersion: v2
+name: api
+description: Helm chart for deploying api to k8s via test task by Rodion Ugarov
+version: 1.0.1

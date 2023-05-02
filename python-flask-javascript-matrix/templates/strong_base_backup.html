@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{ turbo() }}
+  <style>
+    body {
+      font-size: 30px;
+      background-color:black;
+      color: green;
+      font-family: 'Courier New', monospace;
+    }
+    table
+    {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    table td
+    {
+    table-layout:fixed;
+    width:30px;
+    height: 30px;
+    overflow:hidden;
+    word-wrap:break-word;
+    text-align: center;
+    }
+
+    a {
+      color: gray
+    }
+
+  </style>
+  <title>...</title>
+	<meta charset="utf-8"  />
+
+</head>
+<script></script>
+<body>
+{% include "skeleton_matrix.html" %}
+{% block content %}
+{% endblock %}

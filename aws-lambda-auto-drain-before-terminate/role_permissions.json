@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "autoscaling:CompleteLifecycleAction",
+            "Resource": "arn:aws:autoscaling:*:469415891268:autoScalingGroup:*:autoScalingGroupName/EC2ContainerService-ecs-test-EcsInstanceAsg-1BFQGZT9E0Z2A"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:ListClusters",
+                "ecs:ListContainerInstances",
+                "ecs:DescribeContainerInstances",
+                "ecs:UpdateContainerInstancesState"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+16:25-16:50: Pomodoro 1 (work)
+16:50-16:55: Short Break
+16:55-17:20: Pomodoro 2 (work)
+17:20-17:25: Short Break
+17:25-17:50: Pomodoro 3 (work)
+17:50-17:55: Short Break
+17:55-18:20: Pomodoro 4 (work)
+18:20-18:35: Long Break
+18:35-19:00: Pomodoro 5 (work)
+19:00-19:05: Short Break
+

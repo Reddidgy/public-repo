@@ -1,0 +1,4 @@
+- how userdata works? it's no need to reboot instance after docker install. Is it frequently run?
+- how to save credentials proper way?
+- do we need to update apt-get on application machine?
+- how to transfer artifacts properly and what types of artifacts?
