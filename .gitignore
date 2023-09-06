@@ -1,10 +1,37 @@
+# terraform
 **/.terraform/
 **/.terraform0/
 **/.terraform1/
 **/.terraform2/
 **/.terraform3/
-**/.terraform4/
 **/.terraform.lock.hcl
 **/.terraform.tfstate.lock.info
 **/terraform.tfstate
 **/terraform.tfstate.backup
+passwords
+*.mp3
+*.png
+*.svg
+
+# vscode
+**/.vscode/
+
+# Java
+**/.idea/
+
+# env
+**/.env
+
+
+# Other
+**/dru/Backup/
+docs/
+
+
+# python
+Python-3.7.0/
+*//*pycache*/*
+python/python2022/albion_prices/__pycache__/locales.cpython-310.pyc
+python/python2022/albion_prices/__pycache__/db_request.cpython-310.pyc
+
+
