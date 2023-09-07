@@ -1,3 +1,9 @@
+## What is it?
+
+Dockerized application using k8s, helm, written Dockerfile with multistage instance using scratch.
+
+More information about task you can find in `TASK_DESCRIPTION.MD`
+
 ## Requirements to build and deploy
 
 - minikube
