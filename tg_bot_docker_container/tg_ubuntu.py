@@ -2,8 +2,12 @@ import telegram
 from telegram.ext import CommandHandler, Updater, MessageHandler, Filters
 import subprocess
 import os
+from dotenv import load_dotenv
 
-TOKEN = os.environ['TGBOT_TOKEN']
+load_dotenv()  # Load variables from .env file
+
+TGBOT_TOKEN = os.environ.get("TGBOT_TOKEN")
+
 
 def ubuntu_command(update, context):
     command = update.message.text
@@ -17,8 +21,9 @@ def ubuntu_command(update, context):
         update.message.reply_text(f'```\n{error.decode()}\n```', parse_mode=telegram.ParseMode.MARKDOWN)
         print(f"ERROR: {error.decode()}")
     else:
-        if os.environ['TGBOT_TOKEN'] in output.decode():
-            update.message.reply_text(f'Forbidennicht!11 Sensitive information!', parse_mode=telegram.ParseMode.MARKDOWN)
+        if TGBOT_TOKEN in output.decode():
+            update.message.reply_text(f'Forbidennicht!11 Sensitive information!',
+                                      parse_mode=telegram.ParseMode.MARKDOWN)
         elif command.startswith('cd '):
             new_dir = command.split(' ')[1]
             os.chdir(new_dir)
@@ -28,14 +33,16 @@ def ubuntu_command(update, context):
             print(f"LEN: {len(output.decode())}")
             output = subprocess.check_output(command, shell=True)
             update.message.reply_text(f'```\n{output.decode()}\n```', parse_mode=telegram.ParseMode.MARKDOWN)
-            
+
+
 def main():
-    updater = Updater(TOKEN, use_context=True)
+    updater = Updater(TGBOT_TOKEN, use_context=True)
     dp = updater.dispatcher
 
     dp.add_handler(MessageHandler(Filters.text, ubuntu_command))
     updater.start_polling()
     updater.idle()
+
 
 while True:
     if __name__ == '__main__':

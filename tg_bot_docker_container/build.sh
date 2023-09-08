@@ -1,1 +1,1 @@
-docker build --build-arg TGTOKEN=${TGBOT_TOKEN} -t tg_ubuntu .
+docker build -t tg_ubuntu .
