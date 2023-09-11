@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Stopping current ngrok tunnel and container"
+
 my_ubuntu_container=$(docker ps | grep -i ngrok_ubuntu | awk '{print $1}')
 
 if [ -n "$my_ubuntu_container" ]; then
