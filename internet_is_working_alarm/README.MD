@@ -1,0 +1,1 @@
+Useful when you need to know with alarm that your internet started to work :D
