@@ -15,4 +15,4 @@ RUN rm ttyd_install.sh
 
 EXPOSE 8888:7681
 
-CMD ttyd -t rendererType=dom fish
+CMD ttyd -t rendererType=dom bash
