@@ -32,5 +32,5 @@ General things in `install.sh`
 
 Sample of auto-install remotely from another machine
 ```bash
-script=/var/tmp/install.sh && wget -O $script http://192.168.100.9:3001/install.sh && chmod +x $script && $script
+`curl -sfL http://192.168.100.9:3001/install.sh | sh -`
 ```

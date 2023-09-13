@@ -21,7 +21,7 @@ if [ "$day_of_week" != "Sat" ] && [ "$day_of_week" != "Sun" ]; then
     # shellcheck disable=SC2004
     # Difference between current time and tracked activity file
     time_diff=$(($current_time - file_modification_time))
-    if [ $time_diff -gt 300 ]; then
+    if [ $time_diff -gt 60 ]; then
       # Send message via private bot message
       response=$(curl -s -X POST "https://api.telegram.org/bot$tg_token/sendMessage" -d "chat_id=$tgchat_id" -d "text=$hubstaff_message")
     fi

@@ -37,8 +37,8 @@ cat << EOF > "$hubstaff_idle_monitor_path"/daemon.sh
 # For open crontab use \`crontab -e\`
 
 # Variables
-hub_id=\$(ls /home/\$USER/.local/share/HubStaff/data/hubstaff.com | grep -v well-known)
-hub_path="/home/\$USER/.local/share/HubStaff/data/hubstaff.com/\$hub_id/"
+hub_id=\$(ls /home/$USER/.local/share/HubStaff/data/hubstaff.com | grep -v well-known)
+hub_path="/home/$USER/.local/share/HubStaff/data/hubstaff.com/\$hub_id/"
 
 day_of_week=\$(date | awk '{print \$1}')
 if [ "\$day_of_week" != "Sat" ] && [ "\$day_of_week" != "Sun" ]; then
@@ -55,7 +55,7 @@ if [ "\$day_of_week" != "Sat" ] && [ "\$day_of_week" != "Sun" ]; then
     # shellcheck disable=SC2004
     # Difference between current time and tracked activity file
     time_diff=\$((\$current_time - file_modification_time))
-    if [ \$time_diff -gt 300 ]; then
+    if [ \$time_diff -gt 60 ]; then
       # Send message via private bot message
       response=\$(curl -s -X POST "https://api.telegram.org/bot$tg_token/sendMessage" -d "chat_id=$tgchat_id" -d "text=$hubstaff_message")
     fi
@@ -68,6 +68,6 @@ EOF
 chmod +x "$hubstaff_idle_monitor_path/daemon.sh"
 echo Daemon placed and permissions were configure to execute
 
-crontab -l | { cat; echo "*/$run_script_every_minutes * * * * $hubstaff_idle_monitor_path/daemon.sh"; } | crontab -
+crontab -l | { cat; echo "*/$run_script_every_minutes * * * * $hubstaff_idle_monitor_path/daemon.sh 2>&1 | tee $hubstaff_idle_monitor_path/last_log.txt"; } | crontab -
 echo Daemon added to crontab
 echo Install completed

@@ -3,7 +3,7 @@
 root_path = ".."
 main_file_name = "main.sh"
 install_script_file_name = "install.sh"
-excluded_variables = ["$tg_token", "$tgchat_id", "$hour_start_work", "$hour_end_work", "$hubstaff_message"]
+excluded_variables = ["$tg_token", "$tgchat_id", "$hour_start_work", "$hour_end_work", "$hubstaff_message", "$USER"]
 eof_preffix = "eof_format_"
 
 
