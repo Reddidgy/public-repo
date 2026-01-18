@@ -1,5 +1,5 @@
 {
-  "name": "ultimate_prompts",
+  "name": "your_project_name",
   "private": true,
   "scripts": {
     "prepare": "husky",
