@@ -16,10 +16,10 @@ npm install
 ```
 This installs Husky and dotenv, then auto-configures the pre-push hook.
 
-Copy file `husky-script_ref/pre-push`
+Copy file `.husky/pre-push` to `.husky/pre-push` in the root of your project.
 This is a wrapper of git-hook that runs our script
 
-create directory `scripts` and place script `scripts/push-with-version.js`
+create directory `scripts` and place script `scripts/push-with-version.js` there
 
 Copy file `.env.sample` to `.env` and place your version relative path (Default: `VERSION`)
 
