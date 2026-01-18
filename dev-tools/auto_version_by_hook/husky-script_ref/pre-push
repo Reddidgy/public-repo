@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Pre-push hook that automatically handles version bumping
+#
+# This hook intercepts git push and ensures version is bumped before pushing.
+# The hook MUST consume stdin (push refs) and perform the complete push operation,
+# so git/IDEA understands the push was handled and doesn't try again.
+
+# Read and consume stdin (the push refs from git)
+# This signals to git that we're handling the push
+node scripts/push-with-version.js
+exit $?

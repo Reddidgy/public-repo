@@ -1,0 +1,12 @@
+{
+  "name": "ultimate_prompts",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "push": "node scripts/push-with-version.js"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "husky": "^9.1.7"
+  }
+}
