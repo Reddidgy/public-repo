@@ -48,3 +48,9 @@ Your project now auto-bumps version on every push (except main branch).
 ## Notes
 - Version bumps excluded on main branch
 - Use `git push --no-verify` to skip hook if needed
+
+You will see this in the IntelliJ IDE after every push:
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/gZtDhjNH/idea64-ev-RJ8ttyv6.png" alt="idea64 ev RJ8ttyv6" border="0"></a>
+
+However, all proper commits will be in the origin.
