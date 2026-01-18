@@ -1,0 +1,10 @@
+{
+  "name": "your_project_name",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}

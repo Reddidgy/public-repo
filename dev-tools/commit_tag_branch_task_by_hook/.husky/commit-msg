@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+branch_name=$(git branch --show-current)
+commit_message_file="$1"
+commit_message=$(cat "$commit_message_file")
+
+# Only add branch name if the branch_name variable is not empty
+if [ -n "$branch_name" ]; then
+  # Prepend branch name if not already present
+  if ! echo "$commit_message" | grep -q "\[$branch_name\]"; then
+      echo "Adding branch name \[$branch_name\] to commit message"
+      echo "[$branch_name] $commit_message" > "$commit_message_file"
+  fi
+fi
+
+# Check for duplicate "Signed-off-by" lines
+if [ "$(grep '^Signed-off-by: ' "$commit_message_file" | sort | uniq -c | sed -e '/^[[:space:]]*1[[:space:]]/d' | wc -l)" -ne 0 ]; then
+    echo >&2 "Error: Duplicate Signed-off-by lines found. Please fix your commit message."
+    exit 1
+fi
