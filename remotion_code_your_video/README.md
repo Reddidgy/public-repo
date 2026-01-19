@@ -1,8 +1,8 @@
 # Remotion video
 
-I've created this video using remotion  
+I've created this video using remotion
 <a href="https://www.youtube.com/shorts/cqrhqBSCrus">
-<img src="https://i.ibb.co/SDfT3G62/chrome-S9sut-MTUb-W.png" alt="Watch the video" width="200" height="auto" border="0">
+<img src="https://i.ibb.co/SDfT3G62/chrome-S9sut-MTUb-W.png" alt="Watch the video" width="200" style="border:0;">
 </a>
 
 
