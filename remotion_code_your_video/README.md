@@ -1,9 +1,8 @@
 # Remotion video
 
 I've created this video using remotion
-<a href="https://www.youtube.com/shorts/cqrhqBSCrus">
-<img src="https://i.ibb.co/SDfT3G62/chrome-S9sut-MTUb-W.png" alt="Watch the video" width="300" style="border:0;">
-</a>
+
+[![Watch the video](https://i.ibb.co/chfYh3pS/chrome-S9sut-MTUb-W2.png)](https://www.youtube.com/shorts/cqrhqBSCrus)
 
 
 ## Commands
