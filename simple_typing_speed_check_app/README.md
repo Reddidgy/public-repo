@@ -2,9 +2,13 @@
 
 This is a simple frontend application to measure typing speed (WPM) and time taken to type a specific text.
 
+## Demo
+
+[Live Demo](https://raskolniktv.mooo.com/type_check/app)
+
 ## Setup
 
-1. Open `index.html` in any modern web browser.
+1. Open the app in any modern web browser.
 2. Click the "Start" button or press "Enter" to begin.
 3. Type the text in the textarea.
 4. Press "Enter" specifically in the textarea to finish the test.
