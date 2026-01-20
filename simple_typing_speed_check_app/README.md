@@ -2,12 +2,6 @@
 
 This is a simple frontend application to measure typing speed (WPM) and time taken to type a specific text.
 
-## Features
-
-- Display text to type.
-- Timer with millisecond precision (0-60 seconds).
-- WPM calculation based on the formula: `WPM = (Number of words typed / Time taken in minutes)`.
-
 ## Setup
 
 1. Open `index.html` in any modern web browser.

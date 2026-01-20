@@ -1,6 +1,5 @@
 let startTime;
 let timerInterval;
-const MAX_TIME = 60000; // 60 seconds in ms
 
 const displayText = document.getElementById('display-text').innerText;
 const typingArea = document.getElementById('typing-area');
@@ -22,12 +21,8 @@ function startTest() {
         const currentTime = performance.now();
         const elapsed = currentTime - startTime;
 
-        const formattedTime = (Math.min(elapsed, MAX_TIME) / 1000).toFixed(3);
+        const formattedTime = (elapsed / 1000).toFixed(3);
         timerDisplay.innerText = `${formattedTime}s`;
-
-        if (elapsed >= MAX_TIME) {
-            finishTest(MAX_TIME);
-        }
     }, 10);
 }
 
@@ -56,7 +51,7 @@ typingArea.addEventListener('keydown', (event) => {
         } else {
             const endTime = performance.now();
             const elapsed = endTime - startTime;
-            finishTest(Math.min(elapsed, MAX_TIME));
+            finishTest(elapsed);
         }
     }
 });
