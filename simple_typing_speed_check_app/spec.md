@@ -21,7 +21,7 @@ Backend:
 - Accuracy Tracking: Calculates typing accuracy as a percentage (case-insensitive), excluding special characters (`[`, `]`, `}`, `:`, `.`, `_`, `{`, `-`, `"`, `'`, ```).
 - Score Calculation: Computes a final score based on the formula `Score = ( (1 / Time) * (Accuracy ^ 8) ) * 10,00000`.
 - Interactive UI: Toggles textarea visibility between idle and active states.
-- Anti-cheat Measures: Disables copy, paste, cut, right-click, and text selection globally across the UI, specifically targeting the reference text and typing area.
+- Anti-cheat Measures: Disables copy, cut, right-click, and text selection globally across the UI. Pasting into the typing area is allowed.
 - Starter Instruction: Hidden once the test begins to reduce clutter.
 - Input Validation: Specifically prevents newline character in textarea to ensure consistent test finishing via Enter key.
 

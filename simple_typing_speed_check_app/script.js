@@ -93,8 +93,8 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Anti-cheat measures: Disable copy, paste, cut, context menu, and text selection
-['paste', 'copy', 'cut', 'contextmenu', 'selectstart', 'select'].forEach(event => {
+// Anti-cheat measures: Disable copy, cut, context menu, and text selection
+['copy', 'cut', 'contextmenu', 'selectstart', 'select'].forEach(event => {
     typingArea.addEventListener(event, (e) => e.preventDefault());
 });
 
