@@ -24,9 +24,17 @@
             <button id="start-btn">Start</button>
         </div>
         <div id="results" class="hidden">
-            <p class="hidden">Time Taken: <span id="time-taken">0,000</span> ms</p>
-            <p><strong>Score: <span id="score">0.00</span></strong></p>
-            <p>Accuracy: <span id="accuracy">0.00</span>%</p>
+            <div class="results-card">
+                <p class="hidden">Time Taken: <span id="time-taken">0,000</span> ms</p>
+                <div class="score-display">
+                    <span class="score-label">Score</span>
+                    <span id="score" class="score-value">0.00</span>
+                </div>
+                <div class="accuracy-display">
+                    <span class="accuracy-label">Accuracy:</span>
+                    <span id="accuracy">0.00</span>%
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

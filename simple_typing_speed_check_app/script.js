@@ -11,7 +11,7 @@ const starterText = document.getElementById('starter-text');
 const accuracySpan = document.getElementById('accuracy');
 const scoreSpan = document.getElementById('score');
 
-const EXCLUDED_CHARS = ['[', ']', '}', ':',, '_', '{', '-', '"', "'", '`'];
+const EXCLUDED_CHARS = ['[', ']', '}', ':', '.', ',', '_', '{', '-', '"', "'", '`'];
 
 function filterSpecials(text) {
     return text.split('').filter(char => !EXCLUDED_CHARS.includes(char)).join('');
@@ -66,7 +66,7 @@ function finishTest(timeTaken) {
     // Score Calculation: Score = ( (1 / Time) * (Accuracy ^ 8) ) * 10,000
     // Using decimal accuracy (0-1) for the formula
     const decimalAccuracy = accuracy / 100;
-    const score = ((1 / timeTaken) * Math.pow(decimalAccuracy, 8)) * 10000000;
+    const score = ((1 / timeTaken) * Math.pow(decimalAccuracy, 8)) * 10000;
     scoreSpan.innerText = score.toFixed(2);
 }
 

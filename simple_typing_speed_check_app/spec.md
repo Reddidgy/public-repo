@@ -39,4 +39,4 @@ Backend:
 - Typing Area: Textarea for user input, hidden by default.
 - Timer Display: Bold, large real-time display for elapsed time.
 - Start Button: Triggers the test start.
-- Results Div: Shows final bolded score and accuracy percentage. The raw time taken in milliseconds is hidden from the user.
+- Results Div: A unified Results Card featuring a large, prominent Performance Score and a detailed Accuracy percentage. The raw time taken in milliseconds is hidden.
