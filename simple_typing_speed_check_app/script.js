@@ -9,8 +9,9 @@ const timeTakenSpan = document.getElementById('time-taken');
 const timerDisplay = document.getElementById('timer-display');
 const starterText = document.getElementById('starter-text');
 const accuracySpan = document.getElementById('accuracy');
+const scoreSpan = document.getElementById('score');
 
-const EXCLUDED_CHARS = ['[', ']', '}', ':', ',', '.', '_', '{', '-', '"', "'", '`'];
+const EXCLUDED_CHARS = ['[', ']', '}', ':',, '_', '{', '-', '"', "'", '`'];
 
 function filterSpecials(text) {
     return text.split('').filter(char => !EXCLUDED_CHARS.includes(char)).join('');
@@ -61,6 +62,12 @@ function finishTest(timeTaken) {
 
     const accuracy = filteredRef.length > 0 ? (correctChars / filteredRef.length) * 100 : 0;
     accuracySpan.innerText = accuracy.toFixed(2);
+
+    // Score Calculation: Score = ( (1 / Time) * (Accuracy ^ 8) ) * 10,000
+    // Using decimal accuracy (0-1) for the formula
+    const decimalAccuracy = accuracy / 100;
+    const score = ((1 / timeTaken) * Math.pow(decimalAccuracy, 8)) * 10000000;
+    scoreSpan.innerText = score.toFixed(2);
 }
 
 startBtn.addEventListener('click', startTest);
