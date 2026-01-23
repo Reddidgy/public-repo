@@ -8,6 +8,13 @@ const resultsDiv = document.getElementById('results');
 const timeTakenSpan = document.getElementById('time-taken');
 const timerDisplay = document.getElementById('timer-display');
 const starterText = document.getElementById('starter-text');
+const accuracySpan = document.getElementById('accuracy');
+
+const EXCLUDED_CHARS = ['[', ']', '}', ':', ',', '.', '_', '{', '-', '"', "'", '`'];
+
+function filterSpecials(text) {
+    return text.split('').filter(char => !EXCLUDED_CHARS.includes(char)).join('');
+}
 
 function startTest() {
     typingArea.value = '';
@@ -36,9 +43,24 @@ function finishTest(timeTaken) {
     timeTakenSpan.innerText = timeTaken.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     resultsDiv.classList.remove('hidden');
     typingArea.classList.add('hidden');
-
     const formattedTime = (timeTaken / 1000).toFixed(3);
     timerDisplay.innerText = `${formattedTime}s`;
+
+    // Accuracy Calculation
+    const filteredRef = filterSpecials(displayText);
+    const filteredTyped = filterSpecials(typedText);
+
+    let correctChars = 0;
+    const minLength = Math.min(filteredRef.length, filteredTyped.length);
+
+    for (let i = 0; i < minLength; i++) {
+        if (filteredRef[i] === filteredTyped[i]) {
+            correctChars++;
+        }
+    }
+
+    const accuracy = filteredRef.length > 0 ? (correctChars / filteredRef.length) * 100 : 0;
+    accuracySpan.innerText = accuracy.toFixed(2);
 }
 
 startBtn.addEventListener('click', startTest);
