@@ -11,7 +11,7 @@ const starterText = document.getElementById('starter-text');
 const accuracySpan = document.getElementById('accuracy');
 const scoreSpan = document.getElementById('score');
 
-const EXCLUDED_CHARS = ['[', ']', '}', ':', '.', ',', '_', '{', '-', '"', "'", '`'];
+const EXCLUDED_CHARS = ['[', ']', '}', ':', '.', '_', '{', '-', '"', "'", '`'];
 
 function filterSpecials(text) {
     return text.split('').filter(char => !EXCLUDED_CHARS.includes(char)).join('');
