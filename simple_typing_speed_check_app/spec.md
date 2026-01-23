@@ -18,9 +18,10 @@ Backend:
 
 - Real-time High-precision Timer: Displays elapsed time with millisecond precision using `performance.now()`.
 - WPM Calculation: Calculates speed based on typed words and time taken.
-- Accuracy Tracking: Calculates typing accuracy as a percentage, excluding special characters (`[`, `]`, `}`, `:`, `,`, `.`, `_`, `{`, `-`, `"`, `'`, ```).
-- Score Calculation: Computes a final score based on the formula `Score = ( (1 / Time) * (Accuracy ^ 8) ) * 10,000`.
+- Accuracy Tracking: Calculates typing accuracy as a percentage, excluding special characters (`[`, `]`, `}`, `:`, `.`, `_`, `{`, `-`, `"`, `'`, ```).
+- Score Calculation: Computes a final score based on the formula `Score = ( (1 / Time) * (Accuracy ^ 8) ) * 10,00000`.
 - Interactive UI: Toggles textarea visibility between idle and active states.
+- Anti-cheat Measures: Disables copy, paste, cut, right-click, and text selection globally across the UI, specifically targeting the reference text and typing area.
 - Starter Instruction: Hidden once the test begins to reduce clutter.
 - Input Validation: Specifically prevents newline character in textarea to ensure consistent test finishing via Enter key.
 
@@ -40,3 +41,4 @@ Backend:
 - Timer Display: Bold, large real-time display for elapsed time.
 - Start Button: Triggers the test start.
 - Results Div: A unified Results Card featuring a large, prominent Performance Score and a detailed Accuracy percentage. The raw time taken in milliseconds is hidden.
+- Source Code Link: A stylized GitHub link block providing direct access to the project repository.

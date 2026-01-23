@@ -129,6 +129,49 @@ button:hover {
     color: #6c757d;
 }
 
+#display-text,
+#starter-text,
+h1,
+#timer-display,
+.results-card {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 .hidden {
     display: none;
+}
+
+.source-link {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.source-link a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: #f1f3f5;
+    color: #495057;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid #dee2e6;
+}
+
+.source-link a:hover {
+    background: #e9ecef;
+    color: #212529;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.source-link svg {
+    color: #212529;
 }

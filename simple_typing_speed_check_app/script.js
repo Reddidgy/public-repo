@@ -92,3 +92,23 @@ document.addEventListener('keydown', (event) => {
         startTest();
     }
 });
+
+// Anti-cheat measures: Disable copy, paste, cut, context menu, and text selection
+['paste', 'copy', 'cut', 'contextmenu', 'selectstart', 'select'].forEach(event => {
+    typingArea.addEventListener(event, (e) => e.preventDefault());
+});
+
+// Global anti-cheat for display text and other elements
+[
+    document.getElementById('display-text'),
+    document.getElementById('starter-text'),
+    document.querySelector('h1'),
+    timerDisplay,
+    resultsDiv
+].forEach(el => {
+    if (el) {
+        ['copy', 'contextmenu', 'selectstart'].forEach(event => {
+            el.addEventListener(event, (e) => e.preventDefault());
+        });
+    }
+});
