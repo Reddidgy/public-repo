@@ -66,7 +66,7 @@ function finishTest(timeTaken) {
     // Score Calculation: Score = ( (1 / Time) * (Accuracy ^ 8) ) * 10,000
     // Using decimal accuracy (0-1) for the formula
     const decimalAccuracy = accuracy / 100;
-    const score = ((1 / timeTaken) * Math.pow(decimalAccuracy, 8)) * 10000;
+    const score = ((1 / timeTaken) * Math.pow(decimalAccuracy, 8)) * 1000000;
     scoreSpan.innerText = score.toFixed(2);
 }
 
