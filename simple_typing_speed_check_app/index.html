@@ -15,7 +15,7 @@
             empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters. And
             God said, "Let there be light" and there was light. God saw that the light was good, and he separated the
             light from the darkness. God called the light "day", and the darkness he called "night" And there was
-            evening, and there was morning - the first day.</p>
+            evening, and there was morning the first day.</p>
         <p id="starter-text">Prepare to type the above text as quickly and accurately as possible. Press Enter to start
             or click the "Start" button.</p>
         <textarea id="typing-area" class="hidden" placeholder="Click 'Start' or press Enter to begin..."></textarea>
@@ -33,6 +33,28 @@
                 <div class="accuracy-display">
                     <span class="accuracy-label">Accuracy:</span>
                     <span id="accuracy">0.00</span>%
+                </div>
+            </div>
+            <div id="diff-view" class="diff-container hidden">
+                <div class="diff-header">
+                    <h2>Typing Analysis</h2>
+                    <div class="diff-stats">
+                        <span>Mistakes: <strong id="diff-mistakes">0</strong></span>
+                        <span>Fixes: <strong id="diff-fixes">0</strong></span>
+                        <span>Accuracy: <strong id="diff-accuracy">0%</strong></span>
+                    </div>
+                </div>
+                <div class="diff-toolbar">
+                    &lt;/&gt; analysis_report.txt
+                </div>
+                <div class="diff-content-wrapper">
+                    <div id="line-numbers" class="line-numbers"></div>
+                    <div id="diff-body" class="diff-body"></div>
+                </div>
+                <div class="diff-legend">
+                    <div class="legend-item"><span class="dot dot-removed"></span> Missed Word</div>
+                    <div class="legend-item"><span class="dot dot-added"></span> Added Word</div>
+                    <div class="legend-item"><span class="dot dot-mistake"></span> Typo / Mistake</div>
                 </div>
             </div>
         </div>

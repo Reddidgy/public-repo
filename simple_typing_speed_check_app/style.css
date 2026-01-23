@@ -14,9 +14,10 @@ body {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 h1 {
@@ -143,6 +144,132 @@ h1,
 .hidden {
     display: none;
 }
+
+/* Diff View Styles */
+.diff-container {
+    margin-top: 2rem;
+    background: #fff;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.diff-header {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.diff-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.diff-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.diff-toolbar {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    color: #6c757d;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.diff-content-wrapper {
+    display: flex;
+    background: #fff;
+}
+
+.line-numbers {
+    padding: 1.5rem 0.75rem;
+    background: #fdfdfd;
+    border-right: 1px solid #f0f0f0;
+    color: #ced4da;
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    user-select: none;
+    min-width: 30px;
+}
+
+.diff-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #212529;
+    white-space: pre-wrap;
+}
+
+/* Diff Highlighting Styles */
+.diff-removed {
+    background-color: #ffeef0;
+    color: #b31d28;
+    text-decoration: line-through;
+    padding: 2px 0;
+}
+
+.diff-added {
+    background-color: #e6ffed;
+    color: #22863a;
+    padding: 2px 0;
+    border-bottom: 2px solid #22863a;
+}
+
+.diff-mistake {
+    color: #d73a49;
+    text-decoration: underline wavy #d73a49;
+    background-color: #fffbdd;
+}
+
+.diff-legend {
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 2rem;
+    font-size: 0.85rem;
+    color: #495057;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot-removed {
+    background: #d73a49;
+}
+
+.dot-added {
+    background: #28a745;
+}
+
+.dot-mistake {
+    background: #ffc107;
+}
+
 
 .source-link {
     margin-top: 2rem;
