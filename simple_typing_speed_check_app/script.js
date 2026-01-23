@@ -55,7 +55,7 @@ function finishTest(timeTaken) {
     const minLength = Math.min(filteredRef.length, filteredTyped.length);
 
     for (let i = 0; i < minLength; i++) {
-        if (filteredRef[i] === filteredTyped[i]) {
+        if (filteredRef[i].toLowerCase() === filteredTyped[i].toLowerCase()) {
             correctChars++;
         }
     }

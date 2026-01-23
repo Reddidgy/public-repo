@@ -1,6 +1,6 @@
 # Typing Speed Check Application
 
-This is a simple frontend application to measure typing speed (WPM) and accuracy, featuring a prominent performance score and comprehensive anti-cheat measures (disabling copy, paste, and text selection globally).
+This is a simple frontend application to measure typing speed (WPM) and accuracy (case-insensitive), featuring a prominent performance score and comprehensive anti-cheat measures (disabling copy, paste, and text selection globally).
 
 ## Demo
 
