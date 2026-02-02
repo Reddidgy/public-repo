@@ -7,15 +7,20 @@ import html
 import re
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Get the directory where the script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load environment variables from .env file using absolute path
+ENV_FILE = os.path.join(SCRIPT_DIR, '.env')
+load_dotenv(ENV_FILE)
 
 CODA_API_TOKEN = os.getenv('MY_CODA_TOKEN')
 TG_API_TOKEN = os.getenv('TG_API_TOKEN')
 ENABLED_MENTIONS = [m.strip() for m in os.getenv('ENABLED_MENTIONS', '').split(',') if m.strip()]
 ENABLED_CHANNELS = [c.strip() for c in os.getenv('ENABLED_CHANNELS', '').split(',') if c.strip()]
+ENABLED_TGNAMES = [n.strip() for n in os.getenv('ENABLED_TGNAMES', '').split(',') if n.strip()]
 BASE_URL = 'https://coda.io/apis/v1'
-STATE_FILE = 'seen_mentions.json'
+STATE_FILE = os.path.join(SCRIPT_DIR, 'seen_mentions.json')
 
 def get_headers():
     return {
@@ -260,6 +265,12 @@ def main():
     for i in range(min(len(ENABLED_MENTIONS), len(ENABLED_CHANNELS))):
         email_to_channel[ENABLED_MENTIONS[i].lower()] = ENABLED_CHANNELS[i]
 
+    # Create mapping between users and Telegram names based on their order in the lists
+    # email_to_tgname = {email: tgname, ...}
+    email_to_tgname = {}
+    for i in range(min(len(ENABLED_MENTIONS), len(ENABLED_TGNAMES))):
+        email_to_tgname[ENABLED_MENTIONS[i].lower()] = ENABLED_TGNAMES[i]
+
     seen_mentions = load_seen_mentions()
     new_seen_mentions = seen_mentions.copy()
 
@@ -300,10 +311,12 @@ def main():
 
                             if mention_full_id not in seen_mentions:
                                 print(f"New mention(s) in page {page['name']}!")
-                                # Requirement: identify mentioned user's display name
-                                # We have it in m['name'] from find_mentions_in_data
-                                display_name = m.get('name', 'Unknown User')
+                                # Use name from mapping if available, otherwise fallback to Coda display name
+                                target_email = m['email'].lower()
+                                display_name = email_to_tgname.get(target_email, m.get('name', 'Unknown User'))
+
                                 section_name = page['name']
+                                browser_url = page.get('browserLink', '')
 
                                 # Ensure we have clean content
                                 content_found = m['content']
@@ -313,7 +326,8 @@ def main():
                                 msg = (
                                     f"New mention for @{escape_markdown_v2(display_name)} in *{escape_markdown_v2(full_doc_name)}*\n"
                                     f"*Section:* {escape_markdown_v2(section_name)}\n"
-                                    f"*Content:* {escape_markdown_v2(cleaned)}"
+                                    f"*Content:* {escape_markdown_v2(cleaned)}\n"
+                                    f"*URL:* {escape_markdown_v2(browser_url)}"
                                 )
 
                                 # Send only to the mapped channel for this user
@@ -351,8 +365,12 @@ def main():
                                 row_display_name = row.get('name') or 'Unnamed'
                                 print(f"Mention(s) found in table '{table['name']}', row '{row_display_name}'")
 
-                                display_name = m.get('name', 'Unknown User')
+                                # Use name from mapping if available, otherwise fallback to Coda display name
+                                target_email = m['email'].lower()
+                                display_name = email_to_tgname.get(target_email, m.get('name', 'Unknown User'))
+
                                 section_name = table['name']
+                                browser_url = row.get('browserLink', '')
 
                                 # Use the specific content block where mention was found
                                 content_found = m['content']
@@ -361,7 +379,8 @@ def main():
                                 msg = (
                                     f"New mention for @{escape_markdown_v2(display_name)} in *{escape_markdown_v2(full_doc_name)}*\n"
                                     f"*Section:* {escape_markdown_v2(section_name)}\n"
-                                    f"*Content:* {escape_markdown_v2(cleaned)}"
+                                    f"*Content:* {escape_markdown_v2(cleaned)}\n"
+                                    f"*URL:* {escape_markdown_v2(browser_url)}"
                                 )
 
                                 # Send only to the mapped channel for this user
