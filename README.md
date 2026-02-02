@@ -24,6 +24,7 @@ DevOps Engineer passionate about automating infrastructure, optimizing deploymen
 | **[Linux Packaging Tool](light_ubuntu_tools_packer/)** | Extract binaries & dependencies into packages | Simplified cross-environment distribution | Python, Linux tools, Bash |
 | **[Internet Alarm](internet_is_working_alarm/)** | Alert when internet connection restored | Lightweight monitoring with minimal overhead | Python |
 | **[AWS Lambda Drain](aws-lambda-auto-drain-before-terminate/)** | Graceful connection draining before termination | Prevents data loss on instance shutdown | Python, AWS Lambda, EC2 |
+| **[Coda Mention Notifier](coda_io_mentions/)** | Polling Coda API for user mentions & TG alerts | Real-time notifications for Coda mentions | Python, Coda API, Telegram API |
 
 ---
 
@@ -69,6 +70,7 @@ DevOps Engineer passionate about automating infrastructure, optimizing deploymen
 ├── aws_ecs_cluster/                     # AWS EKS IaC with Terraform
 ├── aws_structure_describe/              # AWS infra discovery tool
 ├── aws-lambda-auto-drain-before-terminate/  # Lambda graceful shutdown
+├── coda_io_mentions/               # Coda mention notification service
 ├── dev-tools/                           # Git automation tools
 │   ├── auto_version_by_hook/           # Auto-versioning
 │   └── commit_tag_branch_task_by_hook/  # Commit standardization
